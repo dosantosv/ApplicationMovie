@@ -1,0 +1,118 @@
+﻿<Window x:Class="ApplicationMovie.SearchMovieView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicationMovie"
+        mc:Ignorable="d" 
+        Height="600" 
+        Width="700"
+        ResizeMode="CanMinimize" 
+        Background="#232b2b"
+        WindowStartupLocation="CenterScreen"
+        Title="TheMovie">
+    <Grid>
+
+        <TextBox x:Name="txtMovie" 
+                 HorizontalAlignment="Left" 
+                 Height="27" 
+                 Margin="217,196,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 Width="215"
+                 Text="{Binding Path=SearchedMovieName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button x:Name="btnSearch" 
+                Content="Buscar" 
+                HorizontalAlignment="Left" 
+                Height="27" 
+                Margin="498,196,0,0" 
+                VerticalAlignment="Top" 
+                Width="94" 
+                Click="ButtonSearch_Click"/>
+
+        <DataGrid x:Name="dataGridMovies" 
+                  HorizontalAlignment="Center" 
+                  Height="195" 
+                  Margin="0,240,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="484" 
+                  IsReadOnly="True" 
+                  ItemsSource="{Binding Movies, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedMovie}"
+                  MouseDoubleClick="DataGrid_DoubleClick" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                  AutoGenerateColumns="False" 
+                  CanUserSortColumns="False"
+                  CanUserAddRows="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Nome do Filme" Binding="{Binding Title}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Left"
+                    Margin="216,362,0,76">
+
+            <Button Height="23" 
+                    HorizontalAlignment="Left"  
+                    Name="btnFirst" 
+                    VerticalAlignment="Bottom" 
+                    Width="40" 
+                    Content="&lt;&lt;" 
+                    Click="ButtonFirst_Click" 
+                    Opacity="0.75"/>
+            <Button Height="23"  
+                    VerticalAlignment="Bottom" 
+                    x:Name="btnPrevious" 
+                    Width="40" 
+                    Click="ButtonPrevious_Click" 
+                    Opacity="0.75" 
+                    Content="&lt;"/>
+            <Label x:Name="lblpageInformation" 
+                    HorizontalContentAlignment="Center" 
+                    HorizontalAlignment="Left" 
+                    Height="30" 
+                    Width="100" 
+                    VerticalContentAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Foreground="#fff"
+                    Content="{Binding Path=PageInformationHolder, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Height="23" 
+                    HorizontalAlignment="Right" 
+                    Name="btnNext" 
+                    VerticalAlignment="Bottom" 
+                    Width="40" 
+                    Content="&gt;" 
+                    Click="ButtonNext_Click" 
+                    Opacity="0.75"/>
+            <Button Height="23" 
+                    HorizontalAlignment="Right"  
+                    VerticalAlignment="Bottom" 
+                    Width="40" 
+                    Name="btnLast" 
+                    Click="ButtonLast_Click" 
+                    Opacity="0.75" 
+                    Content="&gt;&gt;"/>
+
+        </StackPanel>
+
+        <Label Content="Nome do Filme :" 
+               HorizontalAlignment="Left" 
+               Height="27" 
+               Margin="108,197,0,0" 
+               VerticalAlignment="Top" 
+               Width="108" 
+               Foreground="#fff"/>
+        
+        <Image HorizontalAlignment="Center"
+               Height="144" 
+               Margin="0,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="314" 
+               Source="/61f827c5c1fc385fc64e167e_the movie db.png" />
+
+    </Grid>
+</Window>
