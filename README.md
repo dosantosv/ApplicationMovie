@@ -4,7 +4,7 @@ O ApplicationMovie "TheMovie" é uma biblioteca de Filmes, onde o usuário pode 
 
 Nesse aplicativo utilizei a API https://developer.themoviedb.org/reference/intro/getting-started para obter os dados mostrados. <br/>
 
-## Utilizei 3 EndPoints <br/>
+## Endpoints utilizados <br/>
 
 > Search/Movie = para realizar a busca dos filmes pelo nome. <br/>
 > Movies/Credits = utilizado para buscar o elenco do filme selecionado pelo usuário. <br/>
